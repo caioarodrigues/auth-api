@@ -19,3 +19,6 @@ class AuthService:
 
     def login(self, dto: LoginDTO):
         return self.login_use_case.execute(dto)
+    
+    def list_users(self):
+        return self.repository.list_users()

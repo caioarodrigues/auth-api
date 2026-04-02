@@ -12,13 +12,14 @@ class RegisterUserUseCase:
 
         try:
             hashed_password = hash_password(dto.password)
-
             user = User(
                 id=None,
                 email=dto.email,
                 password=hashed_password
             )
-
+            
+            if self.repository.find_by_email(dto.email):
+                raise Exception("Email already registered")
             return self.repository.create(user)
         except Exception as e:
             print(f"Error registering user: {str(e)}")

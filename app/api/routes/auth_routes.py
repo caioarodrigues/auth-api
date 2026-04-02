@@ -11,10 +11,12 @@ auth_service = AuthService()
 
 @router.post("/register")
 def register(dto: UserCreateDTO):
+    try:
+        user = auth_service.register(dto)
 
-    user = auth_service.register(dto)
-
-    return UserMapper.to_dto(user)
+        return UserMapper.to_dto(user)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
 @router.post("/login", response_model=TokenDTO)
