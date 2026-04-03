@@ -10,3 +10,5 @@ class User:
     email: EmailStr
     password: str
     id: Optional[int] = None
+    type: str = "user"
+    
