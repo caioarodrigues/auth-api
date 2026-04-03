@@ -10,9 +10,9 @@ auth_service = AuthService()
 
 
 @router.post("/register")
-def register(dto: UserCreateDTO):
+def register(new_user: UserCreateDTO):
     try:
-        user = auth_service.register(dto)
+        user = auth_service.register(new_user)
 
         return UserMapper.to_dto(user)
     except Exception as e:
@@ -20,10 +20,10 @@ def register(dto: UserCreateDTO):
 
 
 @router.post("/login", response_model=TokenDTO)
-def login(dto: LoginDTO):
+def login(user_login: LoginDTO):
 
     try:
-        token = auth_service.login(dto)
+        token = auth_service.login(user_login)
         return TokenDTO(access_token=token)
 
     except ValueError:

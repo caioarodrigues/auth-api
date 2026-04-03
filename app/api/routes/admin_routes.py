@@ -9,9 +9,9 @@ auth_service = AuthService()
 
 @router.get("/list-users")
 def list_users():
-    users = auth_service.list_users()
-    
-    if len(users) == 0:
-        raise HTTPException(status_code=404, detail="No users found")
+    try:
+        users = auth_service.list_users()
+        return [UserMapper.to_dto(user) for user in users]
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
-    return [UserMapper.to_dto(user) for user in users]
