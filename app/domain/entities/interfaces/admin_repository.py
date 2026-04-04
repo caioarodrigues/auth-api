@@ -10,7 +10,11 @@ class AdminRepository(ABC):
         pass
 
     @abstractmethod
-    def find_by_email(self, email: str) -> Optional[Admin]:
+    def find_admin_by_email(self, email: str) -> Optional[Admin]:
+        pass
+    
+    @abstractmethod
+    def list_users(self) -> List[User]:
         pass
     
     @abstractmethod
@@ -20,12 +24,12 @@ class AdminRepository(ABC):
     @abstractmethod
     def delete_user_by_email(self, email: str) -> User:
         pass
-      
+
     @abstractmethod
     def delete_user_by_id(self, user_id: int) -> User:
         pass
     
     @abstractmethod
-    def update_user(self, email: str, updated_user: User) -> User:
+    def update_user(self, id: int, user: User) -> User | Admin:
         pass
     

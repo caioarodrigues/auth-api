@@ -1,10 +1,11 @@
 from app.domain.entities.user import User
 from app.domain.entities.interfaces.user_repository import UserRepository
+from app.domain.entities.interfaces.admin_repository import AdminRepository
 from typing import List
 
 class ListUsersUseCase:
 
-    def __init__(self, repository: UserRepository):
+    def __init__(self, repository: UserRepository | AdminRepository):
         self.repository = repository
 
     def execute(self) -> List[User]:

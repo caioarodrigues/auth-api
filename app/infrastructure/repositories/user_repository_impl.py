@@ -22,4 +22,4 @@ class UserRepositoryImpl(UserRepository):
         return None
     
     def list_users(self) -> List[User]:
-        return fake_db
+        return [user for user in fake_db if isinstance(user, User) and user.type == 'user']

@@ -6,7 +6,7 @@ from app.dtos.user_dto import UserCreateDTO
 from app.dtos.auth_dto import LoginDTO
 
 
-class AuthService:
+class UserAuthService:
 
     def __init__(self):
 

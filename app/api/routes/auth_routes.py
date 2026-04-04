@@ -1,12 +1,12 @@
 from fastapi import APIRouter, HTTPException
-from app.services.auth_service import AuthService
+from app.services.user_auth_service import UserAuthService
 from app.dtos.user_dto import UserCreateDTO
 from app.dtos.auth_dto import LoginDTO, TokenDTO
 from app.mappers.user_mapper import UserMapper
 
 router = APIRouter()
 
-auth_service = AuthService()
+auth_service = UserAuthService()
 
 
 @router.post("/register")
