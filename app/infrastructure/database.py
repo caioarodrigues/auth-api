@@ -15,4 +15,4 @@ user_mock_3 = User(id=9, email="user3@example.com", password="hashed_password", 
 user_mock_4 = User(id=10, email="user4@example.com", password="hashed_password", type="user", name="Maria", last_name="Santos")
 user_mock_5 = User(id=11, email="user5@example.com", password="hashed_password", type="user", name="Pedro", last_name="Oliveira")
 
-fake_db: List[User | Admin] = [admin_mock_1, admin_mock_2, admin_mock_3, admin_mock_4, admin_mock_5, admin_mock_6, user_mock_1, user_mock_2, user_mock_3, user_mock_4, user_mock_5]
+fake_db: List[User] = [admin_mock_1, admin_mock_2, admin_mock_3, admin_mock_4, admin_mock_5, admin_mock_6, user_mock_1, user_mock_2, user_mock_3, user_mock_4, user_mock_5]

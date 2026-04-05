@@ -4,5 +4,5 @@ from app.api.routes.admin_routes import router as admin_router
 
 app = FastAPI(title="Auth API")
 
-app.include_router(auth_router, prefix="/auth", tags=["Auth"])
-app.include_router(admin_router, prefix="/admin", tags=["Admin"])
+app.include_router(auth_router, prefix="/auth", tags=["User Authentication"])
+app.include_router(admin_router, prefix="/admin", tags=["Admin Actions"])

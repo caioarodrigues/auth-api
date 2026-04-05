@@ -10,7 +10,7 @@ auth_service = UserAuthService()
 
 
 @router.post("/register")
-def register(new_user: UserCreateDTO):
+def register_new_user(new_user: UserCreateDTO):
     try:
         user = auth_service.register(new_user)
 
@@ -26,5 +26,7 @@ def login(user_login: LoginDTO):
         token = auth_service.login(user_login)
         return TokenDTO(access_token=token)
 
-    except ValueError:
-        raise HTTPException(status_code=401, detail="Invalid credentials")
+    except ValueError as ve:
+        raise HTTPException(status_code=401, detail=str(ve))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

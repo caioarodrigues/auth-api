@@ -14,7 +14,6 @@ class UserRepositoryImpl(UserRepository):
         return user
 
     def find_by_email(self, email: str) -> Optional[User]:
-
         for user in fake_db:
             if user.email == email:
                 return user

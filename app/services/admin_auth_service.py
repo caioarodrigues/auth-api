@@ -14,13 +14,9 @@ class AdminAuthService:
     def __init__(self):
 
         self.repository = AdminRepositoryImpl()
-
-        self.login_use_case = LoginUserUseCase(self.repository)
+        
         self.list_users_use_case = ListUsersUseCase(self.repository)
         self.list_admins_use_case = ListAdminsUseCase(self.repository)
-
-    def login(self, dto: LoginDTO):
-        return self.login_use_case.execute(dto)
     
     def list_users(self):
         return self.list_users_use_case.execute()
