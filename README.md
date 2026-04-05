@@ -1,6 +1,5 @@
 # Auth API – FastAPI
 
-# Auth API – FastAPI
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Bibliotecas de Segurança](#bibliotecas-de-segurança)
