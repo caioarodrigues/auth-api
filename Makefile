@@ -6,3 +6,6 @@ run:
 
 run-dev-without-docker:
 	uvicorn app.main:app --reload
+
+test:
+	pytest -vv --tb=long
