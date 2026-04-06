@@ -14,7 +14,7 @@ class LoginUserUseCase:
         user = self.repository.find_by_email(user_dto.email)
 
         if user is None:
-            raise ValueError("User not found")
+            raise ValueError("Invalid credentials")
 
         if user.password == user_dto.password: # This is just for demonstration purposes. In a real application, we should never store plain text passwords and should always use a secure hashing algorithm.
             return create_access_token({"sub": user.email})
